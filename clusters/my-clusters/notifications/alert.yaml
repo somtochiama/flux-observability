@@ -1,0 +1,24 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  providerRef: 
+    name: slack
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: '*'
+    - kind: OCIRepository
+      name: '*'
+    - kind: Bucket
+      name: '*'
+    - kind: Kustomization
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: HelmChart
+      name: '*'
+    - kind: HelmRepository
+      name: '*'

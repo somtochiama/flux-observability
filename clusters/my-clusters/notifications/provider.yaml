@@ -1,24 +1,9 @@
+---
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
-kind: Alert
+kind: Provider
 metadata:
-  name: webapp
+  name: slack
   namespace: flux-system
 spec:
-  providerRef: 
-    name: slack
-  eventSeverity: info
-  eventSources:
-    - kind: GitRepository
-      name: '*'
-    - kind: OCIRepository
-      name: '*'
-    - kind: Bucket
-      name: '*'
-    - kind: Kustomization
-      name: '*'
-    - kind: HelmRelease
-      name: '*'
-    - kind: HelmChart
-      name: '*'
-    - kind: HelmRepository
-      name: '*'
+  address: https://hooks.slack.com/services/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
+  type: slack
