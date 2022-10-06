@@ -3,18 +3,39 @@ data "google_client_config" "this" {}
 resource "google_container_cluster" "primary" {
     name = var.name
     location = data.google_client_config.this.region
-    initial_node_count = 3
+    remove_default_node_pool = true
+    initial_node_count       = 1
 
-    node_config {
-        machine_type = "e2-medium"
-        disk_size_gb = 50
-    }
 
     workload_identity_config {
         workload_pool = "${data.google_client_config.this.project}.svc.id.goog"
     }
 
     # tags = ["flux", "gitops", "observability"]
+}
+
+resource "google_container_node_pool" "primary_preemptible_nodes" {
+  name       = "my-node-pool"
+  location   = data.google_client_config.this.region 
+  cluster    = google_container_cluster.primary.name
+  node_count = 2
+
+  node_config {
+    preemptible  = true
+    machine_type = "e2-medium"
+  }
+}
+
+resource "google_container_node_pool" "secondary_node" {
+  name       = "node-pool"
+  location   = data.google_client_config.this.region 
+  cluster    = google_container_cluster.primary.name
+  node_count = 2
+
+  node_config {
+    preemptible  = true
+    machine_type = "e2-medium"
+  }
 }
 
 module "gke_auth" {
