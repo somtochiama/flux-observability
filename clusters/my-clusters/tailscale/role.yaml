@@ -10,12 +10,6 @@ rules:
   - secrets
   verbs:
   - create
-# - apiGroups:
-#   - ""
-#   resourceNames:
-#   - tailscale-auth
-#   resources:
-#   - secrets
-#   verbs:
+  - list
   - get
   - update

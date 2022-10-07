@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - env:
-        - name: KUBE_SECRET
+        - name: TS_KUBE_SECRET
           value: tailscale-auth
         - name: USERSPACE
           value: "true"
