@@ -1,0 +1,14 @@
+apiVersion: px.dev/v1alpha1
+kind: Vizier
+metadata:
+  name: pixie
+  namespace: pl
+spec:
+  version: 0.12.5
+  deployKey: ${DEPLOY_KEY}
+  cloudAddr: withpixie.ai:443
+  disableAutoUpdate: false
+  useEtcdOperator: false
+  clusterName: kind-kind
+  dataAccess: Full
+  dataCollectorParams:

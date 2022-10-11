@@ -15,6 +15,12 @@ patches:
         provider: sops
         secretRef:
           name: sops-gpg
+      postBuild:
+        substituteFrom:
+        - kind: Secret
+          name: px-deploy-key
+
+        
   target:
     kind: Kustomization
 
