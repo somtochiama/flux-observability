@@ -23,6 +23,10 @@ spec:
   path: ./infra/tailscale
   wait: true
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -40,3 +44,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+  postBuild:
+    substituteFrom:
+    - kind: Secret
+      name: px-deploy-key 

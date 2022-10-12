@@ -14,13 +14,7 @@ patches:
       decryption:
         provider: sops
         secretRef:
-          name: sops-gpg
-      postBuild:
-        substituteFrom:
-        - kind: Secret
-          name: px-deploy-key
-
-        
+          name: sops-gpg  
   target:
     kind: Kustomization
 

@@ -5,5 +5,44 @@ metadata:
   name: slack
   namespace: flux-system
 spec:
-  address: https://hooks.slack.com/services/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
+  secretRef:
+    name: provider
   type: slack
+---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: provider-url
+    namespace: flux-system
+stringData:
+    address: ENC[AES256_GCM,data:ecvIw2N0VKQF6CkqO5seskRkM7gLI2ICcsAcsTC8UToOcH2/LwmndLNmJDDgxZAWAj5+4xE0I9G+Zu3xdKxK8DBFuqhoqofE6Q5edxwB9NeJ,iv:0MIdVNe1jI+yRExhLCd37eOujr9OH3WMiXXHIfPbMQ8=,tag:CQJW5biZUtVmu9EJx2w3wA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    lastmodified: '2022-10-12T07:55:46Z'
+    mac: ENC[AES256_GCM,data:KJQLdVhjUbTwkahScoLv3cP5D0BvL5mRFqjuFuDtpmEFRINS2GPAgf1HzbJpSh01WAO3jZZG+61PDfvGVzmFpH2JqMKe//s0BbRlEG94hqt1FFmGwUhfwUQ0Tq2voLV9kS/UZcojX6poLu56rLqyiMd42QqlGh3LShGIIZlLU9U=,iv:EtojLdxrB5qNzB7DRVmUok9quqUp/+01DuhDph4dx+c=,tag:oBft41PA00opsEdqo/U4Ww==,type:str]
+    pgp:
+    -   created_at: '2022-10-12T07:55:44Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9aixW2ynRHWAQ//UYr6DUI/ATzHvawaIrlA+2VYAmFgoXuJ0yKb+pAITCGB
+            tJ5Hs1790MQBKmQmLVrJO6BoYa30kjCY5oj35s/RcqvcXhLeBSaS8fdJq+4lfUJh
+            oh17XHi9K23x6Faz6objOnKKPmOD9lQ3tKuAhffGgQi/D0hjKoHjMj7eZmpupg4R
+            hLsc6ivIs9ZuFNS6pmDydvNqdF2Wcyei0j7/6x4BFZAL5KyTDXa5j/msDzY8zaJT
+            WQlheHx1wan3Q5uYC/Mfvx6FYBJtYyehlYtLzdTpyFjw8RaHRN65hZJ34TDENpXS
+            whToPLJ24iHaz+K7G2YXYJUtm6uV+YNKm7NLIwCMKBc2csngb7t9R9Je/nJQFG/s
+            4weOnVAZpPfgv+mV+HWAJQDdTDAoxwYN3mNCHpHcDjYhS4StnZj5upA/p430Hr1I
+            uqCywA2TZpyTDlLlrtE3BmO7uc8V69SG4M66lEv7X4GxV/64bvBdEfQ126B9tsJd
+            7zDQE+ZPylAcP3irnZe2ZThVfQBD9uLmlSNRnPtysUZwv1XpJ3WNy/d6mnFZk3MW
+            LyzvyG+2fVG0FHlGk3iZiR+d2C2ntOJ1hGO8JDG8jklYx8hBgt3YxXXsLF3IG/WN
+            v+UkqWhZK8Nwq4ncIk8Pq0JIjvzWGkPFEaA8vU//7l15X8E3Z0hJbHsfxXs6vSnS
+            XAHVGUaheJOEwdsCvqflwPy3utAlbBexSSwWCAITn7RecmAooA8rxprBtmPN1BP+
+            z28WFtALzNQUmQ+Ycnh76UsB7ZZSxYHf4sOkqR4xx2UB2YD6h2GtJYu1ZY8E
+            =r+6G
+            -----END PGP MESSAGE-----
+        fp: 22FE5F30631096FFEE7F1E9B40803ABF3FE40332
+    encrypted_regex: ^(data|stringData)$
+    version: 3.6.1
