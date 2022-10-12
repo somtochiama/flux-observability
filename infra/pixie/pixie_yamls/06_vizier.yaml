@@ -5,10 +5,11 @@ metadata:
   namespace: pl
 spec:
   version: 0.12.6
-  deployKey: px-dep-7fe65ff2-5396-4512-9fd3-87f7cc718bab
+  deployKey: ${DEPLOY_KEY}
   cloudAddr: withpixie.ai:443
   disableAutoUpdate: false
   useEtcdOperator: false
   clusterName: gke_dx-somtoxhi_us-central1-c_flux-observability
+  pemMemoryLimit: 1Gi
   dataAccess: Full
   # dataCollectorParams:
