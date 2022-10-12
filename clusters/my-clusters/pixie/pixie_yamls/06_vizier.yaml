@@ -1,19 +1,14 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: pl
----
 apiVersion: px.dev/v1alpha1
 kind: Vizier
 metadata:
   name: pixie
   namespace: pl
 spec:
-  version: 0.12.5
-  deployKey: ${DEPLOY_KEY}
+  version: 0.12.6
+  deployKey: px-dep-7fe65ff2-5396-4512-9fd3-87f7cc718bab
   cloudAddr: withpixie.ai:443
   disableAutoUpdate: false
   useEtcdOperator: false
-  clusterName: kind-kind
+  clusterName: gke_dx-somtoxhi_us-central1-c_flux-observability
   dataAccess: Full
-  dataCollectorParams:
+  # dataCollectorParams:
