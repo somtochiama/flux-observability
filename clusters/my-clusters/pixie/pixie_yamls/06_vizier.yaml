@@ -1,8 +1,7 @@
-apiVersion: px.dev/v1alpha1
-kind: Vizier
+apiVersion: v1
+kind: namespace
 metadata:
-  name: pixie
-  namespace: pl
+  name: pl
 ---
 apiVersion: px.dev/v1alpha1
 kind: Vizier
