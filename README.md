@@ -23,5 +23,6 @@ flux create kustomization kube-prometheus-stack \
   --health-check-timeout=5m \
   --wait --export > clusters/my-clusters/monitoring/ks.yaml
 ```
-5. 
+5. Run  `px deploy-key create` and create the `px-deploy-key` secret in the `flux-system`
+6. 
 
