@@ -1,0 +1,42 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: monitoring
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./infra/monitoring
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: tailscale
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./infra/tailscale
+  wait: true
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: pixie
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./infra/pixie
+  wait: true
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
