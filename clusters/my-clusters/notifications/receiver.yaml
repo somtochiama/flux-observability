@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: receiver
+  namespace: flux-system
+spec:
+  type: LoadBalancer
+  selector:
+    app: notification-controller
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 9292
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: github
+  namespace: flux-system
+spec:
+  events:
+  - push
+  - ping
+  resources:
+  - kind: GitRepository
+    name: flux-system
+  secretRef:
+    name: flux-system
+  type: github
+

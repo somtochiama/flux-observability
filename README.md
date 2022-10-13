@@ -33,6 +33,10 @@ lux create alert flux-system \
 flux create alert-provider slack --type slack --secret-ref provider-url --export \
 >> ./clusters/my-clusters/notification/provider.yaml
 ```
+6. Create receiver
+```
+flux create receiver github --type github --event push,ping --secret-ref flux-system --resource GitRepository/flux-system --export >> ./clusters/my-clusters/notifications/receiver.yaml 
+```
 
 6. Create an app so that the controller can notify about it 
 ```

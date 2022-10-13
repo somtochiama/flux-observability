@@ -17,11 +17,4 @@ patches:
           name: sops-gpg  
   target:
     kind: Kustomization
-- patch: |
-    spec:
-      type: LoadBalancer
-  target:
-    kind: Service
-    name: notification-controller
-
 
