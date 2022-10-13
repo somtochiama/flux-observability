@@ -8,11 +8,16 @@ Different observability solutions with/for Flux in one repo
 flux bootstrap github --owner somtochiama --repository flux-observability  --path=clusters/my-clusters --components-extra image-reflector-controller,image-automation-controller --read-write-key
 ```
 3. Create a slack webhook URL for Slack Provider
+
 [Webhook Link](https://testflux.slack.com/services/B041D3SPU2W)
 Slack Docs on Webhooks [docs](https://api.slack.com/messaging/webhooks)
 ```
-kubectl create secret generic provider-url --from-literal=address=https://hooks.slack.com/services/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 --dry-run=client -oyaml > ./clusters/my-clusters/notification/secret.yaml
+## replace in secret yaml? For easier encryption?
+kubectl create secret generic provider-url \
+--from-literal=address=<slack-webhook> \
+--dry-run=client -oyaml > ./clusters/my-clusters/notifications/secret.yaml
 ```
+4. Create webhook-token for receiver
 
 4. You can encrypt the secret using SOPS in flux
 ```
