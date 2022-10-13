@@ -12,8 +12,6 @@ spec:
       name: '*'
     - kind: OCIRepository
       name: '*'
-    - kind: Bucket
-      name: '*'
     - kind: Kustomization
       name: '*'
     - kind: HelmRelease
