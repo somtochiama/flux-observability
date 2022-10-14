@@ -21,10 +21,9 @@ spec:
             alertmanager:
               enabled: true
               alertManagerSpec:
-                alertManagerSpec:
-                  alertmanagerConfigSelector:
-                    matchLabels:
-                      releas: kube-prometheus-stack
+                alertmanagerConfigSelector:
+                  matchLabels:
+                    release: kube-prometheus-stack
         - op: add
           path: /spec/valuesFrom
           value:

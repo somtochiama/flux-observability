@@ -8,7 +8,7 @@ spec:
   dependsOn:
   - name: kube-prometheus-stack
   interval: 1h0m0s
-  path: ./manifests/monitoring/monitoring-configee
+  path: ./manifests/monitoring/monitoring-config
   prune: true
   sourceRef:
     kind: GitRepository
