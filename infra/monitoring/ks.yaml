@@ -14,7 +14,7 @@ spec:
   timeout: 5m0s
   wait: true
   patches:
-    - patch: |
+    - patch: |-
         - op: replace
           path: /spec/values/alertmanager/enabled
           value: true
