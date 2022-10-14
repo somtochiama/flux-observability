@@ -28,6 +28,10 @@ spec:
   # receiver: slack
   route:
     receiver: slack
+    matchers:
+    - name: severity
+      regex: false
+      value: page
   receivers:
   - name: 'slack'
     slackConfigs:
