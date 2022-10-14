@@ -20,7 +20,7 @@ spec:
           value: 
             alertmanager:
               enabled: true
-              alertManagerSpec:
+              alertmanagerSpec:
                 alertmanagerConfigSelector:
                   matchLabels:
                     release: kube-prometheus-stack
