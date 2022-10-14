@@ -19,7 +19,7 @@ spec:
           path: /spec/values/alertmanager/enabled
           value: true
         - op: add
-          path: /spec/valueFrom
+          path: /spec/valuesFrom
           value:
             - kind: Secret
               name: provider-url
