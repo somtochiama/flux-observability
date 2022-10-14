@@ -23,7 +23,7 @@ spec:
           value:
             - kind: Secret
               name: provider-url
-              valuesKey: token
+              valuesKey: address
               targetPath: alertmanager.config.global.slack_api_url
       target:
         kind: HelmRelease
