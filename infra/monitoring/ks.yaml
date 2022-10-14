@@ -13,4 +13,8 @@ spec:
     name: flux-monitoring
   timeout: 5m0s
   wait: true
-
+  patches:
+    - patch: |
+        - op: replace
+          path: /spec/values/alertmanager/enabled
+          value: true
