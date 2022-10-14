@@ -25,12 +25,12 @@ metadata:
   labels:
     release: kube-prometheus-stack
 spec:
-  receiver: slack
+  # receiver: slack
   route:
     receiver: slack
   receivers:
   - name: 'slack'
-    slackConfig:
+    slackConfigs:
     - channel: "#random"
-      send_resolved: true
+      sendResolved: true
 
