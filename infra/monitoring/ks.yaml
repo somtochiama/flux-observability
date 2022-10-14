@@ -17,7 +17,14 @@ spec:
     - patch: |-
         - op: replace
           path: /spec/values/alertmanager/enabled
-          value: true
+          value: 
+            alertmanager:
+              enabled: true
+              alertManagerSpec:
+                alertManagerSpec:
+                  alertmanagerConfigSelector:
+                    matchLabels:
+                      releas: kube-prometheus-stack
         - op: add
           path: /spec/valuesFrom
           value:

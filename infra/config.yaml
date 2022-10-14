@@ -4,6 +4,7 @@ metadata:
   labels:
     release: kube-prometheus-stack
   name: prometheus-example-rules
+  namespace: monitoring
 spec:
   groups:
     - name: GitOpsToolkit
@@ -20,8 +21,9 @@ apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
   name: kube-prometheus-stack-alertmanager-example
+  namespace: monitoring
   labels:
-    alertmanagerConfig: example
+    release: kube-prometheus-stack
 spec:
   receiver: slack
   route:
