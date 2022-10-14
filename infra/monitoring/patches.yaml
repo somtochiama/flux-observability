@@ -1,0 +1,10 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+spec:
+  values:
+    alertmanager:
+      enabled: true
+      # alertmanagerSpec:
+      #   externalUrl: http://kube-prometheus-stack-alertmanager:9093

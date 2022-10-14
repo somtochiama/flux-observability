@@ -19,7 +19,7 @@ kubectl create secret generic provider-url \
 ```
 4. Create webhook-token for receiver
 
-4. You can encrypt the secret using SOPS in flux
+5. You can encrypt the secret using SOPS in flux
 ```
 sops --encrypt --in-place clusters/my-clusters/secret.yaml
 ```
@@ -57,7 +57,6 @@ flux create kustomization podinfo \
   --interval=5m --export >> ./clusters/my-clusters/notification/apps.yaml
 ```
 
-
 ## Kube-prometheus stack
 4. Add yaml files for sources and config of yaml
 ```
@@ -73,4 +72,26 @@ flux create kustomization kube-prometheus-stack \
   --path="./manifests/monitoring/kube-prometheus-stack" \
   --health-check-timeout=5m \
   --wait --export > clusters/my-clusters/monitoring/ks.yaml
+
+flux create kustomization monitoring-config \
+  --depends-on=kube-prometheus-stack \
+  --interval=1h \
+  --prune=true \
+  --source=flux-monitoring \
+  --path="./manifests/monitoring/monitoring-config" \
+  --health-check-timeout=1m \
+  --wait >> clusters/my-clusters/monitoring/ks.yaml
 ```
+
+## Tailscale for easy access to services
+
+
+You can access Grafana at [http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local/login](http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local/login).
+
+Login with default credentials: 
+user: admin, password: prom-operator
+
+
+You can explore the installed Grafana dashboard provided by monitoring config
+
+
