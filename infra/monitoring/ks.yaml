@@ -18,6 +18,13 @@ spec:
         - op: replace
           path: /spec/values/alertmanager/enabled
           value: true
+        - op: add
+          path: /spec/valueFrom
+          value:
+            - kind: Secret
+              name: provider-url
+              valuesKey: token
+              targetPath: alertmanager.config.global.slack_api_url
       target:
         kind: HelmRelease
         name: kube-prometheus-stack
