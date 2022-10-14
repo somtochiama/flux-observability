@@ -1,6 +1,0 @@
-resources:
-  - config-ks.yaml
-  - ks.yaml
-  - source.yaml
-patches:
-  - patches.yaml
