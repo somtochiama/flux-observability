@@ -18,4 +18,5 @@ spec:
       target:
         kind: HelmRelease
         name: kube-prometheus-stack
+        namespace: monitoring
 
