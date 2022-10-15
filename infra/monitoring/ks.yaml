@@ -28,7 +28,7 @@ spec:
                   routes:
                   - matchers:
                     - severity="page"
-                    - alertname =~ "InfoInhibitor|Watchdog"
+                    - alertname =~ "InfoInhibitor|Watchdog|ReconciliationFailure"
                     receiver: slack
                 receivers:
                 - name: 'slack'
