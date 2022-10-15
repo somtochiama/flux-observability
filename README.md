@@ -87,7 +87,7 @@ flux create kustomization monitoring-config \
 
 
 You can access Grafana at [http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local/login](http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local/login).
-[kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090](kube-prometheus-stack-prometheus)
+[kube-prometheus-stack-prometheus.monitoring.svc.cluster.local](kube-prometheus-stack-prometheus)
 
 Login with default credentials: 
 user: admin, password: prom-operator
