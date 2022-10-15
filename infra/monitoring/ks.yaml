@@ -39,7 +39,6 @@ spec:
                 alertmanagerConfigSelector:
                   matchLabels:
                     release: kube-prometheus-stack
-                retention: 13h0
         - op: add
           path: /spec/valuesFrom
           value:
