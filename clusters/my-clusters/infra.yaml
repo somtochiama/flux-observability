@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./infra/tailscale
+  path: ./infra/tailscalezz
   wait: true
   prune: true
   decryption:
