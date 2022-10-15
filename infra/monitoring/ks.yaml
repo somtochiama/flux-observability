@@ -14,9 +14,40 @@ spec:
   timeout: 5m0s
   wait: true
   patches:
-    - path: values.yaml
+    - patch: |-
+        - op: replace
+          path: /spec/values
+          value:
+          alertmanager:
+            enabled: true
+            global:
+              resolve_timeout: 5m
+            config:
+              route:
+                receiver: slack
+                routes:
+                - matchers:
+                  - severity="page"
+                  - alertname =~ "InfoInhibitor|Watchdog"
+                  receiver: slack
+              receivers:
+              - name: 'slack'
+                slack_configs:
+                - channel: "#random"
+                  send_reesolved: true
+            alertmanagerSpec:
+              alertmanagerConfigSelector:
+                matchLabels:
+                  release: kube-prometheus-stack
+              retention: 13h0
+        - op: add
+          path: /spec/valuesFrom
+          value:
+            - kind: Secret
+              name: provider-url
+              valuesKey: address
+              targetPath: alertmanager.config.global.slack_api_url
       target:
         kind: HelmRelease
         name: kube-prometheus-stack
-        namespace: monitoring
 
