@@ -18,28 +18,28 @@ spec:
         - op: replace
           path: /spec/values
           value:
-          alertmanager:
-            enabled: true
-            global:
-              resolve_timeout: 5m
-            config:
-              route:
-                receiver: slack
-                routes:
-                - matchers:
-                  - severity="page"
-                  - alertname =~ "InfoInhibitor|Watchdog"
+            alertmanager:
+              enabled: true
+              global:
+                resolve_timeout: 5m
+              config:
+                route:
                   receiver: slack
-              receivers:
-              - name: 'slack'
-                slack_configs:
-                - channel: "#random"
-                  send_reesolved: true
-            alertmanagerSpec:
-              alertmanagerConfigSelector:
-                matchLabels:
-                  release: kube-prometheus-stack
-              retention: 13h0
+                  routes:
+                  - matchers:
+                    - severity="page"
+                    - alertname =~ "InfoInhibitor|Watchdog"
+                    receiver: slack
+                receivers:
+                - name: 'slack'
+                  slack_configs:
+                  - channel: "#random"
+                    send_reesolved: true
+              alertmanagerSpec:
+                alertmanagerConfigSelector:
+                  matchLabels:
+                    release: kube-prometheus-stack
+                retention: 13h0
         - op: add
           path: /spec/valuesFrom
           value:
