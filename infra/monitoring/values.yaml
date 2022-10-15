@@ -30,3 +30,4 @@ spec:
         alertmanagerConfigSelector:
           matchLabels:
             release: kube-prometheus-stack
+        retention: 13h0

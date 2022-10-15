@@ -1,0 +1,22 @@
+alertmanager:
+  alertmanagerSpec:
+    alertmanagerConfigSelector:
+      matchLabels:
+        release: kube-prometheus-stack
+    retention: 130h
+  enabled: true
+  global:
+    resolve_timeout: 5m
+  config:
+    route:
+      receiver: slack
+      routes:
+      - matchers:
+        - severity="page"
+        - alertname =~ "InfoInhibitor|Watchdog"
+        receiver: slack
+    receivers:
+    - name: 'slack'
+      slack_configs:
+      - channel: "#random"
+        send_reesolved: true
